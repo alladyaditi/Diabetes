@@ -11,3 +11,4 @@ https://www.kaggle.com/uciml/pima-indians-diabetes-database
 
 https://www.rdocumentation.org/packages/mlbench/versions/2.1-3/topics/PimaIndiansDiabetes
 #### Output Expected 
+One of the Outputs that are expected is that for saying that the age and the body mass weight is an extermly important part to determine if the person has a pos or neg outcome of diabetes, the data proves that if their is a higher body weight and are younger are more likely to get diabetes. A high body mass, and a high glucose level prove that their will be a postive dignoisis of diabetes.
