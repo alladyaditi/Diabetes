@@ -13,4 +13,15 @@ https://www.rdocumentation.org/packages/mlbench/versions/2.1-3/topics/PimaIndian
 #### Output Expected 
 One of the Outputs that are expected is that for saying that the age and the body mass weight is an extermly important part to determine if the person has a pos or neg outcome of diabetes, the data proves that if their is a higher body weight and are younger are more likely to get diabetes. A high body mass, and a high glucose level prove that their will be a postive dignoisis of diabetes.
 ## How to Run Diabetes 
+### Requirement
+R >= 4.0.2
+Shiny >= 1.2.0
+Open R Studio 
+
+```R
+install.packages('shiny')
+library(shiny)
+shiny::runGitHub(repo = "Diabetes",username = "alladyaditi",ref="main") 
+```
+
 Their are three different tabs, the first one being descriptive statstics tab where you can upload the dataset, and it will show the summary or the mean, and median of the dataset variables, and displays the dataset on the page. The next tab is the visualation tab where the dataset will be diplayed as a boxplot and it can by setting two contiuous or categorical varaibles or either or, with a third aesthetic varaible which is either contiuous or categorical variable. The third tab is the statistical anylysis tab where we will conduct three tests t-tests, and Wilcox Test. We can choose our response and explantory varaible. 
