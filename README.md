@@ -8,5 +8,6 @@ The data set Pima Indian Diabetes has 768 outcomes and 9 variables. Their is one
 ### Resource/Output Expected 
 #### Resources about the dataset 
 https://www.kaggle.com/uciml/pima-indians-diabetes-database
+
 https://www.rdocumentation.org/packages/mlbench/versions/2.1-3/topics/PimaIndiansDiabetes
 #### Output Expected 
