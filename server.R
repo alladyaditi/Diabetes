@@ -33,7 +33,7 @@ server <- function(input, output) {
         head(datasetInput(), n = input$obs)
     })
     output$boxplot <- renderPlot({
-        ggplot(data = PimaIndiansDiabetes, aes_string(x =input$x, y = input$y, color= input$z)) +
+        ggplot(data = PimaIndiansDiabetes, aes_string(x =input$x, y = input$y, color= input$z,group=input$z)) +
             geom_boxplot(fill="peachpuff")+theme_minimal()
     })
     data<- reactive({
