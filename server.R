@@ -16,7 +16,7 @@ library(rsconnect)
 # Define server logic required to draw a histogram
 server <- function(input, output) {
     
-    
+   data("PimaIndiansDiabetes") 
     datasetInput <- reactive({
         switch(input$dataset,
                "Pima Indians Diabetes" = PimaIndiansDiabetes 
@@ -33,8 +33,8 @@ server <- function(input, output) {
         head(datasetInput(), n = input$obs)
     })
     output$boxplot <- renderPlot({
-        ggplot(data = PimaIndiansDiabetes, aes_string(x =input$x, y = input$y, color= input$z,group=input$z)) +
-            geom_boxplot(fill="peachpuff")+theme_minimal()
+        ggplot(data = PimaIndiansDiabetes, aes_string(x =input$x, y = input$y, fill= input$z,group=input$z)) +
+            geom_boxplot()+theme_minimal()
     })
     data<- reactive({
         switch(input$data,
@@ -45,18 +45,18 @@ server <- function(input, output) {
     ttest<- reactive({
         var1 <- data()[,input$a]
         var2 <- data()[,input$b]
-        t.test(var1,var2)
+        t.test(var1,var2,conf.level=input$c)
     })
     ttest1<- reactive({
         var <- data()[,input$a]
         var1 <- data()[,input$b]
         diff<-var-var1
-        t.test(diff)
+        t.test(diff,conf.level=input$c)
     })
     ttest2<- reactive({
         var <- data()[,input$a]
         var1 <- data()[,input$b]
-        wilcox.test(var,var1)
+        wilcox.test(var,var1,conf.level=input$c)
     })
     output$stats <- renderPrint({
         #x<-as.numeric(ttest())
@@ -76,3 +76,4 @@ server <- function(input, output) {
         
     })
 }
+ 

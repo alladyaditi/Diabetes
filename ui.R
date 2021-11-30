@@ -15,14 +15,18 @@ library(mlbench)
 library(rsconnect)
 library(ggplot2)
 # Define UI for application that draws a histogram
-ui <- navbarPage("Female Pima Indians Diabetes",theme = shinytheme("sandstone"),
+ui <- navbarPage("Diabetes",theme = shinytheme("sandstone"),
                  tabPanel("Descriptive Statistics",
-                          fluidPage( titlePanel("Female Pima Indians Diabetes Descriptive Statistics"),sidebarLayout(
-                              sidebarPanel(selectInput(inputId = "dataset",
-                                                       label = "Choose a dataset:",
+                          fluidPage( titlePanel("Female Pima Indians Diabetes Descriptive Statistics"),
+                            sidebarLayout(
+                              sidebarPanel(  
+                                           tags$div(tags$label(h4("1. Choose a dataset"))),
+                                           selectInput(inputId = "dataset",
+                                                       label = " ",
                                                        choices = c("Pima Indians Diabetes")),
+                                           tags$div(tags$label(h4("2. Select Number of Observations"))),
                                            numericInput(inputId = "obs",
-                                                        label = "Number of observations to view:",
+                                                        label = "",
                                                         value = 10)
                               ),
                               mainPanel(
@@ -46,7 +50,7 @@ ui <- navbarPage("Female Pima Indians Diabetes",theme = shinytheme("sandstone"),
                                            selected = "age"), 
                                        selectInput(
                                            inputId = "z", 
-                                           label = "Color by:",
+                                           label = "Filter by:",
                                            choices =names(PimaIndiansDiabetes),
                                            selected = "Diabetes")),
                          mainPanel(
@@ -57,31 +61,43 @@ ui <- navbarPage("Female Pima Indians Diabetes",theme = shinytheme("sandstone"),
                      titlePanel("Female Pima Indians Diabetes Statistical Analysis "),
                      sidebarLayout(
                          sidebarPanel( 
+                           tags$div(tags$label(h4("1. Choose a dataset"))),
                              selectInput(inputId = "data",
-                                         label = "Choose a dataset:",
-                                         choices = c("Pima Indians Diabetes")),    
+                                         label = "",
+                                         choices = c("Pima Indians Diabetes")), 
+                           tags$div(tags$label(h4("2. Choose a Response Variable"))),
                              selectInput(
                                  inputId = "a", 
-                                 label = "Response Variable",
+                                 label = " ",
                                  choices =names(PimaIndiansDiabetes)
                              ), 
+                             tags$div(tags$label(h4("3. Choose a Explanatory Variable"))),
                              selectInput(
                                  inputId = "b", 
-                                 label = "Explanatory Variable",
+                                 label = " ",
                                  choices =names(PimaIndiansDiabetes)
+                             ),
+                            tags$div(tags$label(h4("4. Select a Confidence Level "))),
+                             numericInput(
+                                 inputId="c",
+                                 label=" ",
+                                 value=0.95,
+                                 min=0,
+                                 max=0.99,
+                                 step=0.01
                              )
                              
                              
                          ),
                          mainPanel(
-                             h2("T- Test two sample"),
+                             h2("T- Test Two sample"),
                              verbatimTextOutput("stats"),
-                             h2("T- Test one sample")  ,
+                             h2("T- Test One sample")  ,
                              verbatimTextOutput("stats1"),
                              h2("Wilcox Test"),
                              verbatimTextOutput("stats3"),
                              p("Are testing the null hypothesis that the mean of population equals to the value you set."),
-                             p("A low P value suggests that your sample provides enough evidence that you can reject the null hypothesis for the entire population. This is for the T-test one and Two sample t-test.")
+                             p("A low P value suggests that your sample provides enough evidence that you can reject the null hypothesis for the entire population. This is for the One and Two sample t-test.")
                          )
                      )
                  )
