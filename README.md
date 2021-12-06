@@ -25,7 +25,9 @@ install.packages('shiny')
 library(shiny)
 shiny::runGitHub(repo = "Diabetes",username = "alladyaditi",ref="main") 
 ```
-### Shiny App Link 
+### Tutorial of wiSDOM can be downloaded at
+
+### Run Diabetes using shinyapps.io with free RStudio service
 http://alladyaditi.shinyapps.io/Diabetes
 
 Their are three different tabs, the first one being descriptive statstics tab where you can upload the dataset, and it will show the summary or the mean, and median of the dataset variables, and displays the dataset on the page. The next tab is the visualation tab where the dataset will be diplayed as a boxplot and it can by setting two contiuous or categorical varaibles or either or, with a third aesthetic varaible which is either contiuous or categorical variable. The third tab is the statistical anylysis tab where we will conduct three tests which are the One and Two sample t-tests, and Wilcox Test. We can choose our response and explantory varaible. 
