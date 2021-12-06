@@ -25,7 +25,8 @@ install.packages('shiny')
 library(shiny)
 shiny::runGitHub(repo = "Diabetes",username = "alladyaditi",ref="main") 
 ```
-### Tutorial of wiSDOM can be downloaded at
+### Tutorial of Diabetes can be downloaded at
+https://github.com/alladyaditi/Diabetes/blob/main/DIebetes.pdf
 
 ### Run Diabetes using shinyapps.io with free RStudio service
 http://alladyaditi.shinyapps.io/Diabetes
